@@ -1,12 +1,10 @@
 module DNA (toRNA) where
 
 toRNA :: String -> Maybe String
-toRNA text = traverse mapChar text
-
-mapChar :: Char -> Maybe Char
-mapChar x = case x of
-            'G' -> Just 'C'
-            'C' -> Just 'G'
-            'T' -> Just 'A'
-            'A' -> Just 'U'
-            _ -> Nothing
+toRNA = traverse mapChar
+  where
+    mapChar 'G' = Just 'C'
+    mapChar 'C' = Just 'G'
+    mapChar 'T' = Just 'A'
+    mapChar 'A' = Just 'U'
+    mapChar _   = Nothing
